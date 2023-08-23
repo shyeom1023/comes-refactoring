@@ -1,0 +1,47 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true # To log SQL queries
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+        order_insert: true
+        order_updates: true
+        jdbc:
+          batch_size: 1000
+          batch_versioned_data: true
+    generate-ddl: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+rdb:
+  hikari:
+    master:
+      maximumPoolSize: 100
+      minimumIdle: 10
+      connectionTestQuery: SELECT 1 FROM DUAL
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCasheSqlLimit: 2048
+        useServerPrepStmts: true
+      pool-name: hikari-master
+    slave:
+      maximumPoolSize: 100
+      minimumIdle: 20
+      idleTimeout: 540000
+      maxLifetime: 570000
+      connectionTestQuery: SELECT 1 FROM DUAL
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCasheSqlLimit: 2048
+        useServerPrepStmts: true
+      pool-name: hikari-slave

@@ -1,0 +1,25 @@
+### Create User
+POST {{intranet}}/api/user
+Content-Type: application/json
+
+{
+  "userId": "shyeom",
+  "pwd": "duatjrgus1",
+  "name": "염석현",
+  "role": "0",
+  "address": "인천광역시 미추홀수 용정공원로 33 인천 skview 105동 3004호",
+  "sex": "0",
+  "telNo": "010-2677-8951",
+  "email": "shyeom@comes.co.kr",
+  "departmentId": 0,
+  "state": "0",
+  "employeeType": "0",
+  "position": "position",
+  "joinDate": "2021-04-17T00:00:00",
+  "updatedBy": 0,
+  "createdBy": 0
+}
+
+### Search User By UserId
+GET {{intranet}}/api/user/shyeom2
+Content-Type: application/json

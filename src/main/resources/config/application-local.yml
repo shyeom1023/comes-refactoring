@@ -1,0 +1,15 @@
+db:
+  master:
+    host: localhost:3306
+    url: jdbc:mysql://${db.master.host}/${db.master.database}?${db.master.option}
+    option: serverTimezone=Asia/Seoul
+    database: intranet
+    username: root
+    password: duatjrgus1
+  slave:
+    host: localhost:3306
+    url: jdbc:mysql://${db.slave.host}/${db.slave.database}?${db.slave.option}
+    option: serverTimezone=Asia/Seoul
+    database: intranet
+    username: root
+    password: duatjrgus1
