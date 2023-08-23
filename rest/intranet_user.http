@@ -21,5 +21,9 @@ Content-Type: application/json
 }
 
 ### Search User By UserId
-GET {{intranet}}/api/user/shyeom2
+GET {{intranet}}/api/user/shyeom
+Content-Type: application/json
+
+### Search User Me
+GET {{intranet}}/api/user/me
 Content-Type: application/json

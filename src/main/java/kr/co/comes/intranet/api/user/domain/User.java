@@ -1,5 +1,8 @@
 package kr.co.comes.intranet.api.user.domain;
 
+import kr.co.comes.intranet.api.user.common.PasswordHashUtil;
+import kr.co.comes.intranet.common.exception.CommonException;
+import kr.co.comes.intranet.common.exception.ResponseCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +32,10 @@ public class User {
     LocalDateTime retireDate;
     Long updatedBy;
     Long createdBy;
+
+    public void verifyPassword(String plainPwd) throws CommonException {
+        if(!PasswordHashUtil.verifyPassword(plainPwd, this.pwd)){
+            throw new CommonException(ResponseCode.NOT_MATCH_PASSWORD);
+        }
+    }
 }

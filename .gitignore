@@ -38,3 +38,6 @@ out/
 
 ### db sql ###
 /db/local.sql
+
+### IDEA Log ###
+/.idea/httpRequests/http-requests-log.http
