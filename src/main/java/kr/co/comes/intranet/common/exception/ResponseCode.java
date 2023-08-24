@@ -20,6 +20,7 @@ public enum ResponseCode {
      */
     NOT_FOUND_USER("1000", "Not found User"),
     NOT_MATCH_PASSWORD("1001", "Not Match Login Password"),
+    NOT_AUTH_USER("1002", "Not Authentication User")
 
 
     ;

@@ -1,5 +1,5 @@
 ### login
-POST {{intranet}}/api/login
+POST {{intranet}}/api/auth/login
 Content-Type: application/json
 
 {

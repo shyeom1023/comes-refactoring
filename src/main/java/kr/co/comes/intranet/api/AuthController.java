@@ -10,18 +10,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/api/login")
+@RequestMapping("/api/auth")
 @AllArgsConstructor
-public class LoginController {
+public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping
-    public void login(HttpSession session, @RequestBody UserDto.LoginRequest request) throws CommonException {
+    @PostMapping("/login")
+    public void login(HttpServletResponse response, @RequestBody UserDto.LoginRequest request) throws CommonException {
         val user = authService.authentication(request);
-        session.setAttribute("loggedInUser", user);
+        authService.applyAuthInfo(response, user.getUserId());
+    }
+
+    @PostMapping("/logout")
+    public void logout(HttpServletRequest request, HttpServletResponse response){
+        authService.revokeTokens(request, response);
     }
 }
