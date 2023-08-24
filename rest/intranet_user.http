@@ -21,5 +21,10 @@ Content-Type: application/json
 }
 
 ### Search User By UserId
-GET {{intranet}}/api/user/shyeom2
+GET {{intranet}}/api/user/shyeom
 Content-Type: application/json
+
+### Search User Me
+GET {{intranet}}/api/user/me
+Content-Type: application/json
+Cookie: accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaHllb20iLCJleHAiOjE2OTI4NzAyOTN9.3bENR88aT-Uz7N5uYP5hPAGKL9pJhLpyDm8jHdpp_Bg

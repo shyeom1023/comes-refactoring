@@ -39,7 +39,7 @@ public class UserDto {
     @NoArgsConstructor
     @Getter
     @FieldDefaults(level = AccessLevel.PRIVATE)
-    public static class UserResponse{
+    public static class UserResponse {
         Long id;
         String userId;
         String name;
@@ -56,5 +56,14 @@ public class UserDto {
         LocalDateTime retireDate;
         Long updatedBy;
         Long createdBy;
+    }
+
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
+    @FieldDefaults(level = AccessLevel.PRIVATE)
+    public static class LoginRequest {
+        String userId;
+        String pwd;
     }
 }

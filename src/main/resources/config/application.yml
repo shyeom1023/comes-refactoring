@@ -45,3 +45,12 @@ rdb:
         prepStmtCasheSqlLimit: 2048
         useServerPrepStmts: true
       pool-name: hikari-slave
+
+logging:
+  level:
+    org.springframework: DEBUG
+
+auth:
+  ignore-patterns:
+    - method: POST
+      url: /api/auth/login

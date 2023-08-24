@@ -1,0 +1,8 @@
+### login
+POST {{intranet}}/api/auth/login
+Content-Type: application/json
+
+{
+  "userId": "shyeom",
+  "pwd": "duatjrgus1"
+}

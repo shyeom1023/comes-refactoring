@@ -1,5 +1,8 @@
 package kr.co.comes.intranet.common.exception;
 
+import lombok.Getter;
+
+@Getter
 public enum ResponseCode {
 
     /***
@@ -11,10 +14,14 @@ public enum ResponseCode {
     INTERNAL_ERROR("500", "Internal server error"),
 
     /**
+     * ####################################################################
      * custom response code
+     * ####################################################################
      */
+    NOT_FOUND_USER("1000", "Not found User"),
+    NOT_MATCH_PASSWORD("1001", "Not Match Login Password"),
+    NOT_AUTH_USER("1002", "Not Authentication User")
 
-    NOT_FOUND_USER("1000", "Not found User")
 
     ;
 
@@ -24,14 +31,6 @@ public enum ResponseCode {
     ResponseCode(String code, String message) {
         this.code = code;
         this.message = message;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
 }
