@@ -27,4 +27,4 @@ Content-Type: application/json
 ### Search User Me
 GET {{intranet}}/api/user/me
 Content-Type: application/json
-Cookie: accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaHllb20iLCJleHAiOjE2OTI5NDM4Mjl9.LwNvni_aIsw-gT3JN8k8-P3arRHpyeOQ5WdsDo3tdAY
+Cookie: accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaHllb20iLCJleHAiOjE2OTI5NDY3Mzh9.dSw-KWa-Tjk_F41CIK9Ev_cAGlGqtKMQDlStd9jlEpY
