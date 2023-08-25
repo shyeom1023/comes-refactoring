@@ -23,6 +23,7 @@ Content-Type: application/json
 ### Search User By UserId
 GET {{intranet}}/api/user/shyeom
 Content-Type: application/json
+Cookie: accessToken=skip
 
 ### Search User Me
 GET {{intranet}}/api/user/me
