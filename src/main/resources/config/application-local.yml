@@ -1,3 +1,7 @@
+logging:
+  level:
+    root: INFO
+
 db:
   master:
     host: localhost:3306

@@ -5,9 +5,11 @@ import kr.co.comes.intranet.api.auth.AuthService;
 import kr.co.comes.intranet.common.dto.Parttern;
 import kr.co.comes.intranet.common.exception.CommonException;
 import kr.co.comes.intranet.common.exception.ResponseCode;
+import kr.co.comes.intranet.common.type.FilterOrderType;
 import kr.co.comes.intranet.infra.properties.AuthIgnorePattern;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
@@ -20,7 +22,7 @@ import java.io.IOException;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class AuthenticationFilter implements Filter {
+public class AuthenticationFilter implements Filter, Ordered {
 
     private final AuthService authService;
     private final AuthIgnorePattern authIgnorePattern;
@@ -81,5 +83,10 @@ public class AuthenticationFilter implements Filter {
             }
         }
         return false;
+    }
+
+    @Override
+    public int getOrder() {
+        return FilterOrderType.AUTH.ordinal();
     }
 }

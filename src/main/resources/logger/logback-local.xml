@@ -1,0 +1,14 @@
+<included >
+    <logger name="org.springframework" level="${LOG_LEVEL}" />
+
+    <!-- 특정패키지 로깅레벨 설정 -->
+    <logger name="REQUEST" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!-- root레벨 설정 -->
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</included >

@@ -46,10 +46,6 @@ rdb:
         useServerPrepStmts: true
       pool-name: hikari-slave
 
-logging:
-  level:
-    org.springframework: DEBUG
-
 auth:
   ignore-patterns:
     - method: POST

@@ -1,0 +1,11 @@
+<!-- 60초마다 설정 파일의 변경을 확인 하여 변경시 갱신 -->
+<configuration scan="true" scanPeriod="60 seconds">
+    <!--springProfile 태그를 사용하면 logback 설정파일에서 복수개의 프로파일을 설정할 수 있다.-->
+    <springProfile name="local"><property name="project_profile" value="local" /></springProfile>
+    <springProfile name="dev"><property name="project_profile" value="dev" /></springProfile>
+    <!--Environment 내의 프로퍼티들을 개별적으로 설정할 수도 있다.-->
+    <springProperty scope="context" name="LOG_LEVEL" source="logging.level.root"/>
+
+    <include resource="logger/logback-common.xml" />
+    <include resource="logger/logback-${project_profile}.xml" />
+</configuration>
