@@ -9,11 +9,15 @@ db:
     option: serverTimezone=Asia/Seoul
     database: intranet
     username: root
-    password: duatjrgus1
+    password: ENC(vq+Ne+CDb1+yoitpkjKLkknLXs6XQ8GbGCxLfvoOuqw=)
   slave:
     host: localhost:3306
     url: jdbc:mysql://${db.slave.host}/${db.slave.database}?${db.slave.option}
     option: serverTimezone=Asia/Seoul
     database: intranet
     username: root
-    password: duatjrgus1
+    password: ENC(vq+Ne+CDb1+yoitpkjKLkknLXs6XQ8GbGCxLfvoOuqw=)
+
+jasypt:
+  encryptor:
+    password: intranet
