@@ -9,6 +9,7 @@ import kr.co.comes.intranet.api.auth.model.AuthUser;
 import kr.co.comes.intranet.api.user.UserService;
 import kr.co.comes.intranet.api.user.dto.UserDto;
 import kr.co.comes.intranet.common.exception.CommonException;
+import kr.co.comes.intranet.common.type.CookieType;
 import lombok.AllArgsConstructor;
 import lombok.val;
 import org.springframework.stereotype.Service;
@@ -89,7 +90,7 @@ public class AuthService {
         val accessToken = generateAccessToken(userId);
         val refreshToken = generateRefreshToken(userId);
 
-        applyCookie(response, "accessToken", accessToken);
+        applyCookie(response, CookieType.ACCESS_TOKEN.getText(), accessToken);
         applyCookie(response, "refreshToken", refreshToken);
     }
 
@@ -121,13 +122,13 @@ public class AuthService {
 
     public void revokeTokens(HttpServletRequest request, HttpServletResponse response) {
         // 만료된 액세스 토큰 및 리프레시 토큰을 무효화
-        val expiredAccessTokenCookie = new Cookie("accessToken", null);
+        val expiredAccessTokenCookie = new Cookie(CookieType.ACCESS_TOKEN.getText(), null);
         expiredAccessTokenCookie.setHttpOnly(true);
         expiredAccessTokenCookie.setPath("/");
         expiredAccessTokenCookie.setMaxAge(0); // 쿠키 만료 시간을 0으로 설정하여 삭제
         response.addCookie(expiredAccessTokenCookie);
 
-        val expiredRefreshTokenCookie = new Cookie("refreshToken", null);
+        val expiredRefreshTokenCookie = new Cookie(CookieType.REFRESH_TOKEN.getText(), null);
         expiredRefreshTokenCookie.setHttpOnly(true);
         expiredRefreshTokenCookie.setPath("/");
         expiredRefreshTokenCookie.setMaxAge(0);

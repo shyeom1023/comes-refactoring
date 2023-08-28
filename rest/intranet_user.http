@@ -21,10 +21,11 @@ Content-Type: application/json
 }
 
 ### Search User By UserId
-GET {{intranet}}/api/user/shyeom
+GET {{intranet}}/api/user/shyeom2
 Content-Type: application/json
+Cookie: accessToken=skip
 
 ### Search User Me
 GET {{intranet}}/api/user/me
 Content-Type: application/json
-Cookie: accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaHllb20iLCJleHAiOjE2OTI5NDY3Mzh9.dSw-KWa-Tjk_F41CIK9Ev_cAGlGqtKMQDlStd9jlEpY
+Cookie: accessToken=skip
