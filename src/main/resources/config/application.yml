@@ -50,3 +50,5 @@ auth:
   ignore-patterns:
     - method: POST
       url: /api/auth/login
+    - method: OPTIONS
+      url: /api/auth/login
