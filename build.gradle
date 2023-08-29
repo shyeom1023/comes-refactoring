@@ -39,6 +39,9 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-impl:0.11.2' // jjwt의 구현 모듈
     implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2' // jjwt의 Jackson (JSON 라이브러리) 모듈
 
+    // utils
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

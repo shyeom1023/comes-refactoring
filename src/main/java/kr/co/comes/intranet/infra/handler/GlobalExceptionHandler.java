@@ -35,6 +35,12 @@ public class GlobalExceptionHandler {
         return new CommonErrorResponse(e.getResponseCode().getCode(), e.getMessage());
     }
 
+    @ExceptionHandler(CommonAuthException.class)
+    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+    public CommonErrorResponse handleCommonAuthException(CommonException e) {
+        return new CommonErrorResponse(e.getResponseCode().getCode(), e.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
     public CommonErrorResponse handleException(Exception e) {
