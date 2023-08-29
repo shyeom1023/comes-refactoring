@@ -50,13 +50,17 @@ public class AuthenticationFilter implements Filter, Ordered {
             String accessToken = authService.getCookieValue((HttpServletRequest) request, CookieType.ACCESS_TOKEN.getText());
             String refreshToken = authService.getCookieValue((HttpServletRequest) request, CookieType.REFRESH_TOKEN.getText());
 
-            if (AuthService.isTokenExpired(accessToken) && !AuthService.isTokenExpired(refreshToken)) {
+            if (Arrays.asList(env.getActiveProfiles()).contains("local") && accessToken.equals("skip")) {
+                chain.doFilter(request, response);
+                return;
+            }
+            if (!AuthService.isTokenExpired(accessToken)) {
+                chain.doFilter(request, response);
+            } else if (!AuthService.isTokenExpired(refreshToken)) {
                 accessToken = AuthService.refreshAccessToken(refreshToken);
                 authService.applyCookie((HttpServletResponse) response, CookieType.ACCESS_TOKEN.getText(), accessToken);
                 chain.doFilter(request, response);
-            }else if(Arrays.asList(env.getActiveProfiles()).contains("local") && accessToken.equals("skip")){
-                chain.doFilter(request, response);
-            }else {
+            } else {
                 throw new CommonException(ResponseCode.NOT_AUTH_USER);
             }
 
